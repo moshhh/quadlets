@@ -1,0 +1,10 @@
+[Unit]
+Description=Main Podman Network
+
+[Network]
+NetworkName=main
+Subnet=10.68.100.0/24
+Gateway=10.68.100.1
+
+[Install]
+WantedBy=default.target

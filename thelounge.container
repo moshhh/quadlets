@@ -1,0 +1,16 @@
+[Unit]
+Description=The Lounge IRC web interface
+After=local-fs.target network-online.target
+
+[Container]
+Image=ghcr.io/thelounge/thelounge:latest
+AutoUpdate=registry
+PublishPort=9000:9000
+Volume=/opt/thelounge:/var/opt/thelounge
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

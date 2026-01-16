@@ -1,0 +1,26 @@
+[Unit]
+Description=The Bookmark Everything app.
+After=network-online.target
+
+[Container]
+Image=ghcr.io/karakeep-app/karakeep:latest
+AutoUpdate=registry
+ContainerName=karakeep
+EnvironmentFile=/opt/karakeep/.env
+Environment=MEILI_ADDR=http://10.68.100.1:7700
+Environment=BROWSER_WEB_URL=http://10.68.100.1:9222
+Environment=OLLAMA_BASE_URL=http://10.68.100.1:11434
+Environment=INFERENCE_TEXT_MODEL=gemma3:1b
+Environment=DATA_DIR=/data
+# this needs to be set to false on first launch to configure an account
+Environment=DISABLE_SIGNUPS=true
+Network=main
+PublishPort=3000:3000
+Volume=/opt/karakeep:/data
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target

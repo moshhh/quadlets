@@ -1,0 +1,20 @@
+[Unit]
+Description=Meilisearch for Karakeep
+After=karakeep.service network-online.target
+Requires=karakeep.service
+
+[Container]
+Image=docker.io/getmeili/meilisearch:v1.13.3
+ContainerName=karakeep_meilisearch
+EnvironmentFile=/opt/karakeep/.env
+Environment=MEILI_NO_ANALYTICS=true
+Network=main
+Volume=meilisearch:/meili_data
+
+
+[Service]
+Restart=Always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
