@@ -12,7 +12,7 @@ Environment=GROUP_ID=0
 Environment=TZ=Australia/Sydney
 Environment=DATABASE_URL=jdbc:mariadb://mariadb:3306/booklore
 Environment=DATABASE_USERNAME=booklore
-# insert a strong and secure password, make sure they match the mariadb config.
+# insert a strong and secure password, make sure they match the mariadb unit file.
 Environment=DATABASE_PASSWORD=
 Environment=MYSQL_ROOT_PASSWORD=
 
