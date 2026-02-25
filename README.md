@@ -76,6 +76,7 @@ Services aren't generated if there is **any** error in a `.container` file, even
 
 ## Links
 Documentation on how to write the various unit files - https://docs.podman.io/en/latest/markdown/podman-systemd.unit.5.html
+
 Documentation on the podman-auto-update `.timer` - https://docs.podman.io/en/latest/markdown/podman-auto-update.1.html
 
 Blog post providing an overview of quadlets and how they compare to the old method of setting up podman containers - https://mo8it.com/blog/quadlet/
