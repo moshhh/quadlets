@@ -1,0 +1,17 @@
+[Unit]
+Description=Freshrss server
+After=network-online.target
+
+[Container]
+Image=docker.io/freshrss/freshrss:latest
+AutoUpdate=registry
+ContainerName=freshrss
+Environment=CRON_MIN=13,43
+Environment=TZ=Australia/Sydney
+PublishPort=3006:80
+Volume=/opt/freshrss/data:/var/www/FreshRSS/data
+Volume=/opt/freshrss/extensions:/var/www/FreshRSS/extensions
+
+[Service]
+Restart=always
+TimeoutStartSec=900
