@@ -1,0 +1,17 @@
+[Unit]
+Description=jellyfin media server
+After=network-online.target
+
+[Container]
+Image=ghcr.io/jellyfin/jellyfin:latest
+AutoUpdate=registry
+ContainerName=jellyfin
+PublishPort=3007:8096/tcp
+PublishPort=3008:7359/udp
+Volume=/opt/jellyfin/config:/config
+Volume=/opt/jellyfin/cache:/cache
+# Volume=$path/to/media:/media
+
+[Service]
+Restart=always
+TimeoutStartSec=900
