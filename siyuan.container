@@ -1,0 +1,19 @@
+[Unit]
+Description=Siyuan
+After=network-online.target
+
+[Container]
+Image=docker.io/b3log/siyuan
+ContainerName=siyuan
+Environment=TZ=Australia/Sydney
+# ensure that you include a strong and complicated password
+Environment=SIYUAN_ACCESS_AUTH_CODE=
+PublishPort=3008:6806
+Volume=/opt/siyuan:/siyuan/workspace
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
