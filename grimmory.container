@@ -1,0 +1,30 @@
+[Unit]
+Description=Booklore Library
+After=network-online.target grimmory_mariadb.service
+Requires=grimmory_mariadb.service
+
+[Container]
+AutoUpdate=registry
+ContainerName=grimmory
+Image=ghcr.io/grimmory-tools/grimmory:latest
+Environment=USER_ID=0
+Environment=GROUP_ID=0
+Environment=TZ=Australia/Sydney
+Environment=DATABASE_URL=jdbc:mariadb://grimmory_mariadb:3306/booklore
+Environment=DATABASE_USERNAME=booklore
+Environment=DATABASE_PASSWORD=
+Environment=MYSQL_ROOT_PASSWORD=
+Environment=BOOKLORE_PORT=6060
+Network=grimmory
+PublishPort=6060:6060
+Volume=/opt/booklore/data:/app/data
+Volume=/opt/booklore/books:/books
+Volume=/opt/booklore/bookdrop:/bookdrop
+
+[Service]
+Restart=always
+TimeoutStartSec=900
+
+[Install]
+WantedBy=default.target
+
